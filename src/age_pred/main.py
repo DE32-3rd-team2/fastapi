@@ -37,7 +37,7 @@ async def create_upload_file(file: UploadFile):
     insert_row = dml(sql, origin_name, file_path, request_time)
 
     return {
-            "filename": file.origin_name,
+            "filename": file.filename,
             "content_type": file.content_type,
             "file_full_path": file_path,
             "insert_row_cont": insert_row
