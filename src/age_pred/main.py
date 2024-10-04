@@ -26,7 +26,7 @@ async def create_upload_file(file: UploadFile):
         f.write(img)
 
     sql = """
-        INSERT INTO face_age (origin_name, file_path, request_time)
+        INSERT INTO img_info (origin_name, file_path, request_time)
         VALUES(%s, %s, %s)
     """
 
