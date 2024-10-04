@@ -46,6 +46,6 @@ async def create_upload_file(file: UploadFile):
 @app.get("/all")
 def all():
     from age_pred.db import select
-    sql = "SELECT * FROM face_age"
+    sql = "SELECT * FROM img_info"
     result = select(query=sql, size=-1)
     return result
