@@ -1,0 +1,21 @@
+[project]
+name = "age_pred"
+version = "0.1.0"
+description = "age prediciton model fastapi"
+authors = [
+    {name = "Seokxkyu", email = "kyuseok000@gmail.com"},
+]
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.31.0",
+    "PyMySQL>=1.1.1",
+    "jigeumseoul>=0.1.0",
+    "python-multipart>=0.0.12",
+]
+requires-python = "==3.11.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
