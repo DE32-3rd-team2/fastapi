@@ -49,3 +49,11 @@ def all():
     sql = "SELECT * FROM img_info"
     result = select(query=sql, size=-1)
     return result
+
+
+@app.get("/pred")
+def pred():
+    from age_pred.db import select
+    sql = "SELECT * FROM pred"
+    result = select(query=sql, size=-1)
+    return result
