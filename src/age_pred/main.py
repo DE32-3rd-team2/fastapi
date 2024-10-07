@@ -63,3 +63,14 @@ def pred():
     """
     result = select(query=sql, size=-1)
     return result
+
+@app.get("/up")
+def update(label: int, num):
+    from age_pred.db import dml
+    sql = """UPDATE face_age
+    SET answer=%s,
+    WHERE num=%s
+    """
+    answer = label
+    dml(sql, answer, num)
+    return answer
