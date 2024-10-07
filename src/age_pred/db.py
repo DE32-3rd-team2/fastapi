@@ -19,7 +19,10 @@ def select(query: str, size = -1):
     with conn:
         with conn.cursor() as cursor:
             cursor.execute(query)
-            result = cursor.fetchmany(size)
+            if size == -1:
+                result = cursor.fetchall()
+            else:
+                result = cursor.fetchmany(size)
 
     return result
 
