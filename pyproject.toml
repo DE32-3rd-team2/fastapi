@@ -1,6 +1,6 @@
 [project]
 name = "age_pred"
-version = "0.1.0"
+version = "1.0.0"
 description = "age prediciton model fastapi"
 authors = [
     {name = "Seokxkyu", email = "kyuseok000@gmail.com"},
