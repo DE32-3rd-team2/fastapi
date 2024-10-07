@@ -57,9 +57,8 @@ def pred():
     sql = """
     SELECT num, file_path, prediction_result
     FROM face_age
-    WHERE prediction_result IS NOT NULL
+    WHERE prediction_result IS NOT NULL AND answer IS NULL
     ORDER BY num
-    LIMIT 1 
     """
     result = select(query=sql, size=-1)
     return result
