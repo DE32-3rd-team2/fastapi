@@ -26,7 +26,7 @@ async def create_upload_file(file: UploadFile):
         f.write(img)
 
     sql = """
-        INSERT INTO img_info (origin_name, file_path, request_time)
+        INSERT INTO face_age (origin_name, file_path, request_time)
         VALUES(%s, %s, %s)
     """
 
@@ -46,14 +46,22 @@ async def create_upload_file(file: UploadFile):
 @app.get("/all")
 def all():
     from age_pred.db import select
-    sql = "SELECT * FROM img_info"
+    sql = "SELECT * FROM face_age"
     result = select(query=sql, size=-1)
     return result
 
 
-@app.get("/pred")
+@app.get("/one")
 def pred():
     from age_pred.db import select
-    sql = "SELECT * FROM pred"
+    sql = 
+    """
+    SELECT 
+    num, file_path, prediction_result
+    FROM face_age
+    WHERE prediction_result IS NOT NULL
+    ORDER BY num
+    LIMIT 1 
+    """
     result = select(query=sql, size=-1)
     return result
