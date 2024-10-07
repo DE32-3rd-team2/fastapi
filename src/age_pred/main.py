@@ -68,7 +68,7 @@ def pred():
 def update(label: int, num):
     from age_pred.db import dml
     sql = """UPDATE face_age
-    SET answer=%s,
+    SET answer=%s
     WHERE num=%s
     """
     answer = label
