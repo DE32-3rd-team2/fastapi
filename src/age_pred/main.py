@@ -54,10 +54,8 @@ def all():
 @app.get("/one")
 def pred():
     from age_pred.db import select
-    sql = 
-    """
-    SELECT 
-    num, file_path, prediction_result
+    sql = """
+    SELECT num, file_path, prediction_result
     FROM face_age
     WHERE prediction_result IS NOT NULL
     ORDER BY num
