@@ -74,3 +74,12 @@ def update(label: int, num):
     answer = label
     dml(sql, answer, num)
     return answer
+
+@app.get("/delete")
+def delete(num):
+    from age_pred.db import dml
+    sql = """DELETE FROM face_age
+    WHERE num=%s
+    """
+    dml(sql, num)
+    return num 
