@@ -50,6 +50,13 @@ def all():
     result = select(query=sql)
     return result
 
+@app.get("/agg")
+def agg():
+    from age_pred.db import select
+    sql = "SELECT * FROM accuracy"
+    result = select(query=sql)
+    return result
+
 
 @app.get("/one")
 def pred():
