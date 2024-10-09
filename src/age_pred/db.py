@@ -14,12 +14,12 @@ def get_conn():
             )
     return conn
 
-def select(query: str, size = -1):
+def select(query: str):
     conn = get_conn()
     with conn:
         with conn.cursor() as cursor:
             cursor.execute(query)
-            result = cursor.fetchmany(size)
+            result = cursor.fetchall()
 
     return result
 
