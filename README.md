@@ -83,3 +83,19 @@ def agg():
 
 - 집계를 위해 신규 생성된 accuracy 테이블의 전체 데이터 불러오기 위한 함수
 - Streamlit 집계 및 시각화를 위해 활용
+
+
+### delete
+```python
+@app.get("/delete")
+def delete(num):
+    from age_pred.db import dml
+    sql = """DELETE FROM face_age
+    WHERE num=%s
+    """
+    dml(sql, num)
+    return num
+```
+
+- 잘못된 데이터 삭제를 위한 delete 함수
+- num 기준으로 where 절 적용하여, Streamlit에서 출력된 이미지를 보고 삭제하고자 하는 num을 api로 전달하는 방식 
