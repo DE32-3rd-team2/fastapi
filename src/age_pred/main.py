@@ -58,19 +58,6 @@ def agg():
     return result
 
 
-@app.get("/one")
-def pred():
-    from age_pred.db import select
-    sql = """
-    SELECT num, file_path, prediction_result
-    FROM face_age
-    WHERE prediction_result IS NOT NULL AND answer IS NULL
-    ORDER BY num
-    LIMIT 1
-    """
-    result = select(query=sql)
-    return result
-
 @app.get("/up")
 def update(label: int, num):
     from age_pred.db import dml
