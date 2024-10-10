@@ -58,46 +58,4 @@ def all():
 ```python
 @app.get("/one")
 def pred():
-    from age_pred.db import select
-    sql = """
-    SELECT num, file_path, prediction_result
-    FROM face_age
-    WHERE prediction_result IS NOT NULL AND answer IS NULL
-    ORDER BY num
-    """
-    result = select(query=sql, size=-1)
-    return result
-```
-
-- face_age TABLE의 데이터 중에서 예측을 완료하였지만, 정답 라벨이 NULL인 row를 불러오는 함수
-- Streamlit 웹페이지에서 정답 라벨을 입력하기 위하여 활용
-
-### up
-```python
-@app.get("/up")
-def update(label: int, num):
-    from age_pred.db import dml
-    sql = """UPDATE face_age
-    SET answer=%s
-    WHERE num=%s
-    """
-    answer = label
-    dml(sql, answer, num)
-    return answer
-```
-
-- Streamlit 페이지에서 입력한 정답 label을 데이터베이스에 저장하기 위한 함수
-  
-
-### agg
-```python
-@app.get("/agg")
-def agg():
-    from age_pred.db import select
-    sql = "SELECT * FROM accuracy"
-    result = select(query=sql)
-    return result
-```
-
-- 집계를 위해 신규 생성된 accuracy 테이블의 전체 데이터 불러오기 위한 함수
-- Streamlit 집계 및 시각화를 위해 활용
+    from age_p달
